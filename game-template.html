@@ -1,205 +1,537 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planet Smash Destruction - FatGames</title>
-    <meta name="description" content="在Planet Smash Destruction中摧毁行星，测试不同的毁灭武器，体验终极破坏力。">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>游戏名称 - FatGames</title>
+    <meta name="description" content="在FatGames免费玩[游戏名称]! 这是一个好玩的[游戏类型]游戏，特点是[游戏特点]。">
+    <link rel="canonical" href="https://fatgames.shop/games/game-id.html" />
     <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apple-inspired color scheme */
+        :root {
+            --apple-blue: #007AFF;
+            --apple-indigo: #5856D6;
+            --apple-purple: #AF52DE;
+            --apple-pink: #FF2D55;
+            --apple-red: #FF3B30;
+            --apple-orange: #FF9500;
+            --apple-yellow: #FFCC00;
+            --apple-green: #34C759;
+            --apple-teal: #5AC8FA;
+            --apple-cyan: #32ADE6;
+            --apple-gray: #8E8E93;
+            --apple-gray2: #AEAEB2;
+            --apple-gray3: #C7C7CC;
+            --apple-gray4: #D1D1D6;
+            --apple-gray5: #E5E5EA;
+            --apple-gray6: #F2F2F7;
+            --apple-black: #000000;
+            --apple-white: #FFFFFF;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f2f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--apple-black);
+            background-color: var(--apple-gray6);
+            padding: 0;
+            margin: 0;
         }
-        .game-iframe-container {
-            position: relative;
-            overflow: hidden;
+
+        .container {
             width: 100%;
-            padding-top: 56.25%; /* 16:9 宽高比 */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        .game-iframe {
+
+        /* Navigation */
+        .nav {
+            background-color: var(--apple-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--apple-blue);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--apple-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--apple-blue);
+        }
+
+        .nav-link.active {
+            color: var(--apple-blue);
+        }
+
+        /* Game Page Specific */
+        .game-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .game-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--apple-black);
+        }
+
+        .game-meta {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: var(--apple-gray6);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--apple-gray);
+        }
+
+        /* Game Frame */
+        .game-frame-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            background-color: var(--apple-black);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            padding-top: 75%; /* 4:3 Aspect Ratio */
+        }
+
+        .game-frame {
             position: absolute;
             top: 0;
             left: 0;
-            bottom: 0;
-            right: 0;
             width: 100%;
             height: 100%;
             border: none;
         }
+
+        /* Game Controls */
+        .game-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .control-button {
+            background-color: var(--apple-white);
+            border: none;
+            border-radius: 8px;
+            padding: 0.8rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .control-button:hover {
+            background-color: var(--apple-gray6);
+        }
+
+        .fullscreen-button {
+            background-color: var(--apple-blue);
+            color: var(--apple-white);
+        }
+
+        .fullscreen-button:hover {
+            background-color: #0062cc;
+        }
+
+        /* Game Info */
+        .game-info {
+            background-color: var(--apple-white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .game-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--apple-black);
+        }
+
+        .game-description {
+            margin-bottom: 1.5rem;
+            color: var(--apple-gray);
+        }
+
+        .game-instructions h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--apple-black);
+        }
+
+        /* Related Games */
+        .related-games {
+            margin-bottom: 3rem;
+        }
+
+        .related-games h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .game-card {
+            background-color: var(--apple-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .game-content {
+            padding: 1.2rem;
+        }
+
+        .game-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .game-card p {
+            font-size: 0.9rem;
+            color: var(--apple-gray);
+            margin-bottom: 0.8rem;
+            height: 2.8rem;
+            overflow: hidden;
+        }
+
+        .play-button {
+            display: inline-block;
+            background-color: var(--apple-blue);
+            color: var(--apple-white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .play-button:hover {
+            background-color: #0062cc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--apple-black);
+            color: var(--apple-white);
+            padding: 3rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--apple-white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-link a {
+            color: var(--apple-gray3);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link a:hover {
+            color: var(--apple-white);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--apple-gray3);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-logo {
+                margin-bottom: 1rem;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            .game-title {
+                font-size: 2rem;
+            }
+            
+            .game-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .game-controls {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav class="bg-purple-700 text-white shadow-lg">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold">Fat<span class="text-yellow-300">Games</span></a>
-            <div class="space-x-4">
-                <a href="/" class="hover:text-yellow-300 transition">首页</a>
-                <a href="/#popular" class="hover:text-yellow-300 transition">热门游戏</a>
-                <a href="/#categories" class="hover:text-yellow-300 transition">游戏分类</a>
-                <a href="/#about" class="hover:text-yellow-300 transition">关于我们</a>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">FatGames</a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../all-games.html" class="nav-link">All Games</a>
+                <a href="../categories.html" class="nav-link">Categories</a>
             </div>
         </div>
     </nav>
 
-    <!-- 游戏内容 -->
-    <main class="container mx-auto px-4 py-8">
-        <!-- 面包屑导航 -->
-        <div class="text-sm mb-6">
-            <a href="/" class="text-purple-600 hover:text-purple-800">首页</a> &gt; 
-            <a href="/category/simulation" class="text-purple-600 hover:text-purple-800">模拟游戏</a> &gt; 
-            <span class="text-gray-600">Planet Smash Destruction</span>
-        </div>
-
-        <!-- 游戏标题 -->
-        <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Planet Smash Destruction</h1>
-        
-        <!-- 游戏标签 -->
-        <div class="flex flex-wrap gap-2 mb-6">
-            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">模拟</span>
-            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">破坏</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">太空</span>
-            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">物理</span>
-        </div>
-
-        <!-- 游戏iframe容器 -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-            <div class="game-iframe-container">
-                <iframe src="https://www.crazygames.com/embed/solar-smash" class="game-iframe" frameborder="0" allow="gamepad *;"></iframe>
-            </div>
-        </div>
-
-        <!-- 游戏介绍 -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="lg:col-span-2">
-                <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">游戏介绍</h2>
-                    <p class="text-gray-600 mb-4">
-                        Planet Smash Destruction是一款令人上瘾的行星毁灭模拟器。在这个游戏中，你可以使用各种武器和工具来摧毁行星，包括激光、导弹、小行星撞击等等。游戏采用精美的3D图形和逼真的物理效果，让每一次毁灭都充满视觉冲击力。
-                    </p>
-                    <p class="text-gray-600 mb-4">
-                        你可以选择不同的行星，每个行星都有独特的地形和大气层。实验不同的毁灭方式，观察行星如何因为你的操作而逐渐崩溃。你可以精确地瞄准特定区域，或者一次性释放大规模毁灭性武器。
-                    </p>
-                    <p class="text-gray-600">
-                        这款游戏没有具体目标或时间限制，让你可以尽情发挥创造力，体验前所未有的破坏快感。无需下载，直接在浏览器中开始你的行星毁灭之旅！
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-lg p-6">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">如何游玩</h2>
-                    <ul class="list-disc list-inside space-y-2 text-gray-600">
-                        <li>使用鼠标选择不同的武器和工具</li>
-                        <li>点击行星上的位置来使用选中的武器</li>
-                        <li>旋转视角以查看行星的不同部分</li>
-                        <li>尝试各种武器组合来创造独特的毁灭效果</li>
-                        <li>观察行星表面和内部结构的变化</li>
-                    </ul>
+    <main>
+        <div class="container">
+            <!-- Game Header -->
+            <div class="game-header">
+                <h1 class="game-title">游戏名称</h1>
+                <div class="game-meta">
+                    <span class="tag">分类1</span>
+                    <span class="tag">分类2</span>
+                    <span class="tag">分类3</span>
                 </div>
             </div>
 
-            <div class="lg:col-span-1">
-                <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">游戏信息</h2>
-                    <div class="space-y-3">
-                        <div>
-                            <span class="text-gray-500">类型:</span>
-                            <span class="text-gray-800 font-medium">模拟, 物理, 太空</span>
-                        </div>
-                        <div>
-                            <span class="text-gray-500">平台:</span>
-                            <span class="text-gray-800 font-medium">网页浏览器</span>
-                        </div>
-                        <div>
-                            <span class="text-gray-500">控制:</span>
-                            <span class="text-gray-800 font-medium">鼠标</span>
-                        </div>
-                        <div>
-                            <span class="text-gray-500">发布日期:</span>
-                            <span class="text-gray-800 font-medium">2021-06-15</span>
-                        </div>
-                        <div>
-                            <span class="text-gray-500">开发者:</span>
-                            <span class="text-gray-800 font-medium">NoodleCAke Studios</span>
+            <!-- Game Frame -->
+            <div class="game-frame-container">
+                <!-- 这里替换为实际游戏的iframe代码 -->
+                <iframe class="game-frame" src="https://www.example.com/game-embed" allowfullscreen></iframe>
+            </div>
+
+            <!-- Game Controls -->
+            <div class="game-controls">
+                <button class="control-button refresh-button" onclick="refreshGame()">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 3a5 5 0 0 0-5 5H1l3 3 3-3H5a3 3 0 1 1 3 3 1 1 0 0 0 0 2 5 5 0 0 0 0-10z"/>
+                    </svg>
+                    重新加载
+                </button>
+                <button class="control-button fullscreen-button" onclick="toggleFullscreen()">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M1.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-13zm1 1h11v11h-11v-11z"/>
+                    </svg>
+                    全屏模式
+                </button>
+            </div>
+
+            <!-- Game Info -->
+            <div class="game-info">
+                <h2>游戏介绍</h2>
+                <div class="game-description">
+                    <p>这里是游戏的详细描述。游戏的玩法、特点和其他相关信息会在这里显示。</p>
+                </div>
+
+                <div class="game-instructions">
+                    <h3>游戏玩法</h3>
+                    <p>使用键盘的箭头键或WASD键控制角色移动。空格键跳跃，鼠标点击进行交互或射击。尝试达成游戏目标，获得最高分！</p>
+                </div>
+            </div>
+
+            <!-- Related Games -->
+            <div class="related-games">
+                <h2>相似游戏推荐</h2>
+                <div class="game-grid">
+                    <!-- 相似游戏1 -->
+                    <div class="game-card">
+                        <img src="../images/games-original/game1.jpg" alt="Game 1" class="game-image">
+                        <div class="game-content">
+                            <h3>相似游戏1</h3>
+                            <p>这是另一个你可能会喜欢的相似游戏。</p>
+                            <a href="game1.html" class="play-button">开始游戏</a>
                         </div>
                     </div>
-                </div>
 
-                <div class="bg-white rounded-xl shadow-lg p-6">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">相似游戏</h2>
-                    <div class="space-y-4">
-                        <a href="/game/block-wall-destroyer" class="flex items-center hover:bg-gray-50 p-2 rounded transition">
-                            <div class="w-16 h-16 bg-gray-200 rounded overflow-hidden mr-3">
-                                <img src="https://via.placeholder.com/100x100?text=Block" alt="Block Wall Destroyer" class="w-full h-full object-cover">
-                            </div>
-                            <div>
-                                <h3 class="font-medium text-gray-800">Block Wall Destroyer</h3>
-                                <span class="text-sm text-gray-500">破坏, 物理</span>
-                            </div>
-                        </a>
-                        <a href="/game/sportcars-crash" class="flex items-center hover:bg-gray-50 p-2 rounded transition">
-                            <div class="w-16 h-16 bg-gray-200 rounded overflow-hidden mr-3">
-                                <img src="https://via.placeholder.com/100x100?text=Cars" alt="Sportcars Crash" class="w-full h-full object-cover">
-                            </div>
-                            <div>
-                                <h3 class="font-medium text-gray-800">Sportcars Crash</h3>
-                                <span class="text-sm text-gray-500">赛车, 破坏</span>
-                            </div>
-                        </a>
-                        <a href="/game/merge-master-tanks-tank-wars" class="flex items-center hover:bg-gray-50 p-2 rounded transition">
-                            <div class="w-16 h-16 bg-gray-200 rounded overflow-hidden mr-3">
-                                <img src="https://via.placeholder.com/100x100?text=Tanks" alt="Merge Master Tanks" class="w-full h-full object-cover">
-                            </div>
-                            <div>
-                                <h3 class="font-medium text-gray-800">Merge Master Tanks</h3>
-                                <span class="text-sm text-gray-500">战争, 策略</span>
-                            </div>
-                        </a>
+                    <!-- 相似游戏2 -->
+                    <div class="game-card">
+                        <img src="../images/games-original/game2.jpg" alt="Game 2" class="game-image">
+                        <div class="game-content">
+                            <h3>相似游戏2</h3>
+                            <p>这是另一个你可能会喜欢的相似游戏。</p>
+                            <a href="game2.html" class="play-button">开始游戏</a>
+                        </div>
+                    </div>
+
+                    <!-- 相似游戏3 -->
+                    <div class="game-card">
+                        <img src="../images/games-original/game3.jpg" alt="Game 3" class="game-image">
+                        <div class="game-content">
+                            <h3>相似游戏3</h3>
+                            <p>这是另一个你可能会喜欢的相似游戏。</p>
+                            <a href="game3.html" class="play-button">开始游戏</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="bg-gray-800 text-white py-10 mt-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Fat<span class="text-yellow-300">Games</span></h3>
-                    <p class="text-gray-400">免费在线游戏平台，随时随地畅玩各种类型的游戏。</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-medium mb-4">快速链接</h4>
-                    <ul class="space-y-2">
-                        <li><a href="/" class="text-gray-400 hover:text-white transition">首页</a></li>
-                        <li><a href="/all-games" class="text-gray-400 hover:text-white transition">所有游戏</a></li>
-                        <li><a href="/#categories" class="text-gray-400 hover:text-white transition">游戏分类</a></li>
-                        <li><a href="/#about" class="text-gray-400 hover:text-white transition">关于我们</a></li>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>FatGames</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="../index.html">Home</a></li>
+                        <li class="footer-link"><a href="../all-games.html">All Games</a></li>
+                        <li class="footer-link"><a href="../categories.html">Categories</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="text-lg font-medium mb-4">热门分类</h4>
-                    <ul class="space-y-2">
-                        <li><a href="/category/action" class="text-gray-400 hover:text-white transition">动作游戏</a></li>
-                        <li><a href="/category/puzzle" class="text-gray-400 hover:text-white transition">解谜游戏</a></li>
-                        <li><a href="/category/strategy" class="text-gray-400 hover:text-white transition">策略游戏</a></li>
-                        <li><a href="/category/simulation" class="text-gray-400 hover:text-white transition">模拟游戏</a></li>
+                <div class="footer-column">
+                    <h3>热门分类</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="../all-games.html?category=puzzle">益智游戏</a></li>
+                        <li class="footer-link"><a href="../all-games.html?category=action">动作游戏</a></li>
+                        <li class="footer-link"><a href="../all-games.html?category=sports">体育游戏</a></li>
+                        <li class="footer-link"><a href="../all-games.html?category=adventure">冒险游戏</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="text-lg font-medium mb-4">联系我们</h4>
-                    <p class="text-gray-400">有任何问题或建议？请随时联系我们！</p>
-                    <a href="mailto:contact@fatgames.shop" class="text-yellow-300 hover:text-yellow-200 transition">contact@fatgames.shop</a>
+                <div class="footer-column">
+                    <h3>关于我们</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">关于FatGames</a></li>
+                        <li class="footer-link"><a href="#">联系我们</a></li>
+                        <li class="footer-link"><a href="#">隐私政策</a></li>
+                        <li class="footer-link"><a href="#">服务条款</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 FatGames.shop. 保留所有权利。</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FatGames. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- 脚本 -->
+    <script>
+        // 刷新游戏
+        function refreshGame() {
+            const gameFrame = document.querySelector('.game-frame');
+            gameFrame.src = gameFrame.src;
+        }
+
+        // 全屏模式
+        function toggleFullscreen() {
+            const gameContainer = document.querySelector('.game-frame-container');
+            
+            if (!document.fullscreenElement) {
+                if (gameContainer.requestFullscreen) {
+                    gameContainer.requestFullscreen();
+                } else if (gameContainer.mozRequestFullScreen) { // Firefox
+                    gameContainer.mozRequestFullScreen();
+                } else if (gameContainer.webkitRequestFullscreen) { // Chrome, Safari
+                    gameContainer.webkitRequestFullscreen();
+                } else if (gameContainer.msRequestFullscreen) { // IE/Edge
+                    gameContainer.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
+        // 加载相关游戏
+        document.addEventListener('DOMContentLoaded', function() {
+            // 这里可以添加动态加载相关游戏的代码
+        });
+    </script>
 </body>
-</html>
+</html> 

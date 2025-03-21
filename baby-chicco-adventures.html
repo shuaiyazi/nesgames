@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Chicco Adventures - FatGames</title>
+    <meta name="description" content="在FatGames免费玩Baby Chicco Adventures! 加入可爱的奇可宝宝，探索充满色彩的世界！这款适合儿童的游戏充满了有趣的活动和教育内容。">
+    <link rel="canonical" href="https://fatgames.shop/games/baby-chicco-adventures.html" />
+    <link rel="stylesheet" href="../css/game-page.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">FatGames</a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">首页</a>
+                <a href="../all-games.html" class="nav-link">全部游戏</a>
+                <a href="../categories.html" class="nav-link">游戏分类</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <!-- Game Header -->
+            <div class="game-header">
+                <h1 class="game-title">Baby Chicco Adventures</h1>
+                <div class="game-meta">
+                    <span class="tag">儿童</span><span class="tag">教育</span><span class="tag">冒险</span>
+                </div>
+            </div>
+
+            <!-- Game Frame -->
+            <div class="game-frame-container">
+                <iframe class="game-frame" src="https://www.crazygames.com/embed/baby-chicco-adventures" allowfullscreen></iframe>
+            </div>
+
+            <!-- Game Controls -->
+            <div class="game-controls">
+                <button class="control-button refresh-button" onclick="refreshGame()">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 3a5 5 0 0 0-5 5H1l3 3 3-3H5a3 3 0 1 1 3 3 1 1 0 0 0 0 2 5 5 0 0 0 0-10z"/>
+                    </svg>
+                    重新加载
+                </button>
+                <button class="control-button fullscreen-button" onclick="toggleFullscreen()">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M1.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5h-13zm1 1h11v11h-11v-11z"/>
+                    </svg>
+                    全屏模式
+                </button>
+            </div>
+
+            <!-- Game Info -->
+            <div class="game-info">
+                <h2>游戏介绍</h2>
+                <div class="game-description">
+                    <p>加入可爱的奇可宝宝，探索充满色彩的世界！这款适合儿童的游戏充满了有趣的活动和教育内容。</p>
+                </div>
+
+                <div class="game-instructions">
+                    <h3>游戏玩法</h3>
+                    <p>使用鼠标和键盘控制游戏。每个游戏的具体操作方式可能有所不同，请参考游戏内的指示。</p>
+                </div>
+            </div>
+
+            <!-- Related Games -->
+            <div class="related-games">
+                <h2>相似游戏推荐</h2>
+                <div class="game-grid" id="related-games-container">
+                    <!-- 相似游戏将通过JavaScript动态加载 -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>FatGames</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="../index.html">首页</a></li>
+                        <li class="footer-link"><a href="../all-games.html">全部游戏</a></li>
+                        <li class="footer-link"><a href="../categories.html">游戏分类</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>热门分类</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="../all-games.html?category=puzzle">益智游戏</a></li>
+                        <li class="footer-link"><a href="../all-games.html?category=action">动作游戏</a></li>
+                        <li class="footer-link"><a href="../all-games.html?category=sports">体育游戏</a></li>
+                        <li class="footer-link"><a href="../all-games.html?category=adventure">冒险游戏</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>关于我们</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">关于FatGames</a></li>
+                        <li class="footer-link"><a href="#">联系我们</a></li>
+                        <li class="footer-link"><a href="#">隐私政策</a></li>
+                        <li class="footer-link"><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FatGames. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 脚本 -->
+    <script src="../js/game-data.js"></script>
+    <script>
+        // 刷新游戏
+        function refreshGame() {
+            const gameFrame = document.querySelector('.game-frame');
+            gameFrame.src = gameFrame.src;
+        }
+
+        // 全屏模式
+        function toggleFullscreen() {
+            const gameContainer = document.querySelector('.game-frame-container');
+            
+            if (!document.fullscreenElement) {
+                if (gameContainer.requestFullscreen) {
+                    gameContainer.requestFullscreen();
+                } else if (gameContainer.mozRequestFullScreen) { // Firefox
+                    gameContainer.mozRequestFullScreen();
+                } else if (gameContainer.webkitRequestFullscreen) { // Chrome, Safari
+                    gameContainer.webkitRequestFullscreen();
+                } else if (gameContainer.msRequestFullscreen) { // IE/Edge
+                    gameContainer.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
+        // 加载相关游戏
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentGameId = "baby-chicco-adventures";
+            const relatedGames = getRelatedGames(currentGameId, 3);
+            const relatedGamesContainer = document.getElementById('related-games-container');
+            
+            if (relatedGames && relatedGames.length > 0) {
+                relatedGames.forEach(game => {
+                    const gameCard = document.createElement('div');
+                    gameCard.className = 'game-card';
+                    
+                    gameCard.innerHTML = `
+                        <img src="${game.image}" alt="${game.title}" class="game-image">
+                        <div class="game-content">
+                            <h3>${game.title}</h3>
+                            <p>${game.description}</p>
+                            <a href="${game.id}.html" class="play-button">开始游戏</a>
+                        </div>
+                    `;
+                    
+                    relatedGamesContainer.appendChild(gameCard);
+                });
+            } else {
+                // 如果没有相关游戏，显示一些默认推荐
+                const defaultGames = ["2048", "flappy-bird", "snake"];
+                defaultGames.forEach(id => {
+                    if (id !== currentGameId) {
+                        const game = getGameById(id);
+                        if (game) {
+                            const gameCard = document.createElement('div');
+                            gameCard.className = 'game-card';
+                            
+                            gameCard.innerHTML = `
+                                <img src="${game.image}" alt="${game.title}" class="game-image">
+                                <div class="game-content">
+                                    <h3>${game.title}</h3>
+                                    <p>${game.description}</p>
+                                    <a href="${game.id}.html" class="play-button">开始游戏</a>
+                                </div>
+                            `;
+                            
+                            relatedGamesContainer.appendChild(gameCard);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
