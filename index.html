@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FatGames - 免费在线游戏平台</title>
+    <meta name="description" content="FatGames是一个提供各种免费在线游戏的平台，包括动作、解谜、射击、模拟等多种类型游戏。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="bg-purple-700 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Fat<span class="text-yellow-300">Games</span></a>
+            <div class="space-x-4">
+                <a href="index.html" class="hover:text-yellow-300 transition">首页</a>
+                <a href="#popular" class="hover:text-yellow-300 transition">热门游戏</a>
+                <a href="#categories" class="hover:text-yellow-300 transition">游戏分类</a>
+                <a href="#about" class="hover:text-yellow-300 transition">关于我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部横幅 -->
+    <header class="bg-gradient-to-r from-purple-800 to-indigo-700 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">欢迎来到 FatGames</h1>
+            <p class="text-xl mb-8">探索数百款免费在线游戏，随时随地畅玩！</p>
+            <div class="max-w-md mx-auto">
+                <div class="relative">
+                    <input type="text" placeholder="搜索游戏..." class="w-full py-3 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-800">
+                    <button class="absolute right-2 top-2 bg-yellow-400 hover:bg-yellow-500 text-purple-900 font-semibold rounded-full px-4 py-1">
+                        搜索
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 游戏展示区域 -->
+    <main class="container mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">热门游戏</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- 游戏卡片 - Planet Smash Destruction -->
+            <div class="game-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                <div class="h-40 bg-gray-200 relative overflow-hidden">
+                    <img src="https://via.placeholder.com/400x250?text=Planet+Smash" alt="Planet Smash Destruction" class="w-full h-full object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Planet Smash Destruction</h3>
+                    <p class="text-gray-600 text-sm mb-3">摧毁行星的模拟游戏，测试不同的毁灭武器</p>
+                    <a href="games/planet-smash-destruction.html" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-medium rounded px-4 py-2 text-sm transition">立即游玩</a>
+                </div>
+            </div>
+
+            <!-- 游戏卡片 - Holey.io Battle Royale -->
+            <div class="game-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                <div class="h-40 bg-gray-200 relative overflow-hidden">
+                    <img src="https://via.placeholder.com/400x250?text=Holey.io" alt="Holey.io Battle Royale" class="w-full h-full object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Holey.io Battle Royale</h3>
+                    <p class="text-gray-600 text-sm mb-3">在线多人对战游戏，吞噬对手扩大领地</p>
+                    <a href="games/holey.io-battle-royale.html" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-medium rounded px-4 py-2 text-sm transition">立即游玩</a>
+                </div>
+            </div>
+            
+            <!-- 游戏卡片 - Corn Tycoon -->
+            <div class="game-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                <div class="h-40 bg-gray-200 relative overflow-hidden">
+                    <img src="https://via.placeholder.com/400x250?text=Corn+Tycoon" alt="Corn Tycoon" class="w-full h-full object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Corn Tycoon</h3>
+                    <p class="text-gray-600 text-sm mb-3">建立自己的玉米帝国，成为农业大亨</p>
+                    <a href="games/corn-tycoon.html" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-medium rounded px-4 py-2 text-sm transition">立即游玩</a>
+                </div>
+            </div>
+            
+            <!-- 游戏卡片 - Block Wall Destroyer -->
+            <div class="game-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                <div class="h-40 bg-gray-200 relative overflow-hidden">
+                    <img src="https://via.placeholder.com/400x250?text=Block+Wall" alt="Block Wall Destroyer" class="w-full h-full object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Block Wall Destroyer</h3>
+                    <p class="text-gray-600 text-sm mb-3">经典打砖块游戏，测试你的反应能力</p>
+                    <a href="games/block-wall-destroyer.html" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-medium rounded px-4 py-2 text-sm transition">立即游玩</a>
+                </div>
+            </div>
+            
+            <!-- 更多游戏卡片可以按照上面的模式添加 -->
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="games/all-games.html" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-full px-8 py-3 text-lg transition">
+            <a href="/all-games" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-full px-8 py-3 text-lg transition">
+                查看全部游戏
+            </a>
+        </div>
+    </main>
+
+    <!-- 分类区域 -->
+    <section id="categories" class="bg-gray-100 py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">游戏分类</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="/category/action" class="bg-red-500 hover:bg-red-600 text-white rounded-lg p-6 text-center transition">
+                    <span class="block text-xl font-semibold">动作游戏</span>
+                </a>
+                <a href="/category/puzzle" class="bg-blue-500 hover:bg-blue-600 text-white rounded-lg p-6 text-center transition">
+                    <span class="block text-xl font-semibold">解谜游戏</span>
+                </a>
+                <a href="/category/strategy" class="bg-green-500 hover:bg-green-600 text-white rounded-lg p-6 text-center transition">
+                    <span class="block text-xl font-semibold">策略游戏</span>
+                </a>
+                <a href="/category/simulation" class="bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg p-6 text-center transition">
+                    <span class="block text-xl font-semibold">模拟游戏</span>
+                </a>
+                <a href="/category/sports" class="bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg p-6 text-center transition">
+                    <span class="block text-xl font-semibold">体育游戏</span>
+                </a>
+                <a href="/category/racing" class="bg-purple-500 hover:bg-purple-600 text-white rounded-lg p-6 text-center transition">
+                    <span class="block text-xl font-semibold">赛车游戏</span>
+                </a>
+                <a href="/category/arcade" class="bg-pink-500 hover:bg-pink-600 text-white rounded-lg p-6 text-center transition">
+                    <span class="block text-xl font-semibold">街机游戏</span>
+                </a>
+                <a href="/category/multiplayer" class="bg-teal-500 hover:bg-teal-600 text-white rounded-lg p-6 text-center transition">
+                    <span class="block text-xl font-semibold">多人游戏</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">关于 FatGames</h2>
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-gray-600 mb-6">
+                    FatGames 是您的在线游戏天堂，提供多种类型的免费在线游戏。我们精心挑选每一款游戏，确保给您带来最佳的游戏体验。无需下载，直接在浏览器中畅玩！
+                </p>
+                <p class="text-gray-600">
+                    我们的使命是为全球玩家提供高质量、有趣的游戏内容，满足不同年龄段和喜好的用户需求。每周都会更新新游戏，欢迎经常回来查看！
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Fat<span class="text-yellow-300">Games</span></h3>
+                    <p class="text-gray-400">免费在线游戏平台，随时随地畅玩各种类型的游戏。</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-400 hover:text-white transition">首页</a></li>
+                        <li><a href="/all-games" class="text-gray-400 hover:text-white transition">所有游戏</a></li>
+                        <li><a href="#categories" class="text-gray-400 hover:text-white transition">游戏分类</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">关于我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">热门分类</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/category/action" class="text-gray-400 hover:text-white transition">动作游戏</a></li>
+                        <li><a href="/category/puzzle" class="text-gray-400 hover:text-white transition">解谜游戏</a></li>
+                        <li><a href="/category/strategy" class="text-gray-400 hover:text-white transition">策略游戏</a></li>
+                        <li><a href="/category/simulation" class="text-gray-400 hover:text-white transition">模拟游戏</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">联系我们</h4>
+                    <p class="text-gray-400">有任何问题或建议？请随时联系我们！</p>
+                    <a href="mailto:contact@fatgames.shop" class="text-yellow-300 hover:text-yellow-200 transition">contact@fatgames.shop</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 FatGames.shop. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
