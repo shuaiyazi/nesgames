@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing Games - FatGames</title>
+    <meta name="description" content="Play the best Racing Games online at FatGames. Find Get behind the wheel and experience the thrill of high-speed racing action!">
+    <link rel="canonical" href="https://fatgames.shop/category/racing" />
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apple-inspired color scheme */
+        :root {
+            --apple-blue: #007AFF;
+            --apple-indigo: #5856D6;
+            --apple-purple: #AF52DE;
+            --apple-pink: #FF2D55;
+            --apple-red: #FF3B30;
+            --apple-orange: #FF9500;
+            --apple-yellow: #FFCC00;
+            --apple-green: #34C759;
+            --apple-teal: #5AC8FA;
+            --apple-cyan: #32ADE6;
+            --apple-gray: #8E8E93;
+            --apple-gray2: #AEAEB2;
+            --apple-gray3: #C7C7CC;
+            --apple-gray4: #D1D1D6;
+            --apple-gray5: #E5E5EA;
+            --apple-gray6: #F2F2F7;
+            --apple-black: #000000;
+            --apple-white: #FFFFFF;
+            --category-color: #FF2D55;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--apple-black);
+            background-color: var(--apple-gray6);
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        .nav {
+            background-color: var(--apple-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--apple-blue);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--apple-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--apple-blue);
+        }
+
+        .nav-link.active {
+            color: var(--apple-blue);
+        }
+
+        /* Category Header */
+        .category-header {
+            background-color: var(--category-color);
+            color: var(--apple-white);
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .category-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .category-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .category-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .category-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Game Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .game-card {
+            background-color: var(--apple-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .game-content {
+            padding: 1.5rem;
+        }
+
+        .game-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--apple-black);
+        }
+
+        .game-description {
+            font-size: 1rem;
+            color: var(--apple-gray);
+            margin-bottom: 1rem;
+        }
+
+        .game-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background-color: var(--apple-gray6);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--apple-gray);
+        }
+
+        .tag.featured {
+            background-color: var(--category-color);
+            color: var(--apple-white);
+        }
+
+        .play-button {
+            display: inline-block;
+            background-color: var(--apple-blue);
+            color: var(--apple-white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .play-button:hover {
+            background-color: var(--apple-indigo);
+        }
+
+        .play-button.featured {
+            background-color: var(--category-color);
+        }
+
+        .play-button.featured:hover {
+            filter: brightness(1.1);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin: 2rem 0 1.5rem;
+            color: var(--apple-black);
+            text-align: center;
+        }
+
+        .coming-soon-section {
+            margin-top: 4rem;
+        }
+
+        .back-to-categories {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--apple-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-to-categories:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--apple-white);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid var(--apple-gray5);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-link {
+            color: var(--apple-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-link:hover {
+            color: var(--apple-blue);
+        }
+
+        .copyright {
+            color: var(--apple-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .category-title {
+                font-size: 2rem;
+            }
+
+            .category-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">FatGames</a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/categories" class="nav-link active">Categories</a>
+                <a href="#" class="nav-link">Popular</a>
+                <a href="#" class="nav-link">New Games</a>
+                <a href="#" class="nav-link">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Category Header -->
+    <header class="category-header">
+        <div class="container">
+            <h1 class="category-title">Racing Games</h1>
+            <p class="category-description">Get behind the wheel and experience the thrill of high-speed racing action!</p>
+            <div class="category-meta">
+                <div class="category-meta-item">
+                    <span>Games Available:</span>
+                    <span>0</span>
+                </div>
+                <div class="category-meta-item">
+                    <span>Most Popular:</span>
+                    <span>Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Games -->
+    <main class="container">
+        <a href="/categories" class="back-to-categories">← Back to All Categories</a>
+        
+        
+            <section>
+                <h2 class="section-title">Available Games</h2>
+                <p style="text-align: center;">No games available in this category yet. Check back soon!</p>
+            </section>
+        
+        
+        
+            <section class="coming-soon-section">
+                <h2 class="section-title">Coming Soon</h2>
+                <div class="game-grid">
+                    
+            <div class="game-card">
+                <img src="https://placehold.co/600x400" alt="Space Race" class="game-image">
+                <div class="game-content">
+                    <h3 class="game-title">Space Race</h3>
+                    <p class="game-description">Race through the cosmos in this thrilling space adventure! Coming soon to FatGames.</p>
+                    <div class="game-tags">
+                        <span class="tag">Coming Soon</span>
+                        <span class="tag">Racing</span>
+<span class="tag">Space</span>
+<span class="tag">Coming Soon</span>
+                    </div>
+                    <a href="#" class="play-button" style="background-color: var(--apple-gray);">Coming Soon</a>
+                </div>
+            </div>
+        
+                </div>
+            </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#" class="footer-link">About Us</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+            </div>
+            <p class="copyright">© 2024 FatGames. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
