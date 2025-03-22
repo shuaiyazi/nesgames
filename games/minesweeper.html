@@ -1,0 +1,78 @@
+
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Minesweeper - FatGames</title>
+         <style>
+             * {margin: 0; padding: 0; box-sizing: border-box;}
+             :root {--apple-blue: #007AFF; --apple-gray: #8E8E93; --apple-gray6: #F2F2F7; --apple-black: #000000; --apple-white: #FFFFFF;}
+             body {font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: var(--apple-gray6); color: var(--apple-black);}
+             .container {width: 100%; max-width: 1200px; margin: 0 auto; padding: 20px;}
+             .nav {background-color: var(--apple-white); box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;}
+             .nav-container {display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; max-width: 1200px; margin: 0 auto;}
+             .nav-logo {font-size: 1.5rem; font-weight: 700; color: var(--apple-blue); text-decoration: none;}
+             .nav-links {display: flex; gap: 2rem;}
+             .nav-link {color: var(--apple-gray); text-decoration: none; font-weight: 500;}
+             .game-header {background-color: #FF3B30; color: white; padding: 2rem 0; text-align: center;}
+             .game-title {font-size: 2.5rem; margin-bottom: 1rem;}
+             .game-content {display: grid; grid-template-columns: 1fr 300px; gap: 2rem; margin: 2rem 0;}
+             .game-main {background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+             .game-iframe-container {width: 100%; height: 0; padding-bottom: 62.5%; position: relative;}
+             .game-iframe {position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;}
+             .game-description-container {padding: 2rem;}
+             .game-sidebar {display: flex; flex-direction: column; gap: 1rem;}
+             .sidebar-section {background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+             .sidebar-title {font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;}
+             @media (max-width: 968px) {.game-content {grid-template-columns: 1fr;}}
+         </style>
+     </head>
+     <body>
+         <nav class="nav">
+             <div class="nav-container">
+                 <a href="../index.html" class="nav-logo">FatGames</a>
+                 <div class="nav-links">
+                     <a href="../index.html" class="nav-link">Home</a>
+                     <a href="../categories.html" class="nav-link">Categories</a>
+                     <a href="#" class="nav-link">Popular</a>
+                     <a href="#" class="nav-link">New Games</a>
+                 </div>
+             </div>
+         </nav>
+         
+         <header class="game-header">
+             <div class="container">
+                 <h1 class="game-title">Minesweeper</h1>
+             </div>
+         </header>
+         
+         <main class="container">
+             <div class="game-content">
+                 <div class="game-main">
+                     <div class="game-iframe-container">
+                         
+    https://your-iframe-link-for-minesweeper
+
+                     </div>
+                     <div class="game-description-container">
+                         <h2>关于这个游戏</h2>
+                         <p>暂无游戏描述</p>
+                     </div>
+                 </div>
+                 
+                 <div class="game-sidebar">
+                     <div class="sidebar-section">
+                         <h3 class="sidebar-title">游戏信息</h3>
+                         <p>一般游戏</p>
+                     </div>
+                 </div>
+             </div>
+         </main>
+         
+         <footer style="background: white; text-align: center; padding: 2rem 0; margin-top: 3rem;">
+             <p>© 2024 FatGames. All rights reserved.</p>
+         </footer>
+     </body>
+     </html>
+     
